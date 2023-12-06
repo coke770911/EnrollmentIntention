@@ -1,0 +1,117 @@
+extends layout
+
+block content
+  .page-wrapper
+    section#header
+      .container
+        h1#logo
+          a(href='/')= i18n('SystemName')
+        p= i18n('School')
+    section#footer
+      .container
+        header
+          h2= i18n('formTitle')
+          p(style="text-align: center;")= i18n('formDescription')
+        .row
+          .col-12.col-12-small
+            section
+              form(method="post" action="#" name="applyForm" id="applyForm")
+                .row.gtr-50
+                  .col-6.col-12-small
+                    label=i18n('FirstName')
+                    input(type="text" maxlength="100" name="FirstName" placeholder=i18n('FirstName') )
+                  .col-6.col-12-small
+                    label=i18n('LastName')
+                    input(type="text" maxlength="100" name="LastName" placeholder=i18n('LastName') )
+                  .col-6.col-12-small
+                    label=i18n('Birthday')
+                    input(class="form-control" type="text" maxlength="100" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('YourBirthday') )
+                  .col-6.col-12-small
+                    label=i18n('Gender')
+                    input(type="radio" id="male" name="gender" value="M" )
+                    label(for="male")=i18n('Male')
+                    input(type="radio" id="female" name="gender" value="F" )
+                    label(for="female")=i18n('Female')
+                  .col-6.col-12-small
+                    label=i18n('Country')
+                    select(name="Country" style="-webkit-appearance: menulist-button;")
+                      option(value="")=i18n('Country')
+                  .col-6.col-12-small
+                    label=i18n('Nationality')
+                    input(type="text" maxlength="100" name="Nationality" placeholder=i18n('Nationality') )
+                  .col-12
+                    label=i18n('Language(s) spoken at home')
+                    input(type="text" maxlength="100" name="Language" placeholder=i18n('Language') )
+                  .col-12
+                    label=i18n('Address')
+                    input(type="text" maxlength="100" name="Address" placeholder=i18n('Address') )
+                  .col-6 
+                    label=i18n('City')
+                    input(type="text" maxlength="100" name="City" placeholder=i18n('City') )
+                  .col-6
+                    label=i18n('State')
+                    input(type="text" maxlength="100" name="State" placeholder=i18n('State') )
+                  .col-12 
+                    label=i18n('ZipCode')
+                    input(type="text" maxlength="100" name="ZipCode" placeholder=i18n('ZipCode') )
+                  .col-12
+                    label=i18n('Phone')
+                    input(type="text" name="Phone" placeholder="include country & area codes (e.g. +886 2 77388000)" )
+                  .col-12
+                    label=i18n('Email')
+                    input(type="text" maxlength="100" name="Email" placeholder=i18n('Email') )
+                  .col-12 
+                    label=i18n('Do you suffer from any medical condition/disability that may affect your studies?')
+                    input(type="radio" id="male" name="PhysicalConditionCheck" value="1" )
+                    label(for="male")=i18n('Yes')
+                    input(type="radio" id="female" name="PhysicalConditionCheck" value="0" )
+                    label(for="female")=i18n('No')
+                  .col-12 
+                    label=i18n('If yes, please specify from the following')
+                    .col-12 
+                      input(type="checkbox" name="PhysicalCondition[]" value="Hearing")
+                      label=i18n('Hearing')
+                    .col-12 
+                      input(type="checkbox" name="PhysicalCondition[]" value="Learning")
+                      label=i18n('Learning')
+                    .col-12 
+                      input(type="checkbox" name="PhysicalCondition[]" value="Mobility")
+                      label=i18n('Mobility')
+                    .col-12 
+                      input(type="checkbox" name="PhysicalCondition[]" value="Visual")
+                      label=i18n('Visual')
+                    .col-12 
+                      input(type="checkbox" name="PhysicalCondition[]" value="Medical")
+                      label=i18n('Medical')
+                    .col-12
+                      input(type="checkbox" name="PhysicalCondition[]" value="Other" onclick="if(this.checked){$('#PhysicalConditionOther').show();}else{$('#PhysicalConditionOther').hide();}" )
+                      label=i18n('Other')
+                      input#PhysicalConditionOther(type="text" maxlength="100" style="display: none;" name="PhysicalConditionOther" placeholder=i18n('Other, Please specify'))
+                  .col-12
+                    label=i18n('How did you hear about us?')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Educatuin Agent")
+                      label=i18n('Educatuin Agent')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Career & Education Expo")
+                      label=i18n('Career & Education Expo')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Careers Adviser")
+                      label=i18n('Careers Adviser')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Billboard") 
+                      label=i18n('Billboard')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Print/Newspaper")
+                      label=i18n('Print/Newspaper')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Word of Mouth")
+                      label=i18n('Word of Mouth')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Google or other search engine")
+                      label=i18n('Google or other search engine')
+                    .col-12
+                      input(type="checkbox" name="MessageSource[]" value="Other")
+                      label=i18n('Other')
+                  .col-12(style="text-align: center;")
+                    a(href="#" class="form-button-submit button icon solid fa-envelope")=i18n('Send')
