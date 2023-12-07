@@ -30,8 +30,8 @@ i18n.configure({
   cookie: 'lang',         // 設置用於存儲語言信息的 cookie 名稱
   debug: true
 });
-
 app.use(i18n.init);
+//設定到全域
 app.locals.i18n = i18n.__;
 
 // 設定路由
