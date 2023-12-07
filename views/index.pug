@@ -25,17 +25,18 @@ block content
                     input(type="text" maxlength="100" name="LastName" placeholder=i18n('LastName') )
                   .col-6.col-12-small
                     label=i18n('Birthday')
-                    input(class="form-control" type="text" maxlength="100" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('YourBirthday') )
+                    input(class="form-control" type="text" maxlength="100" name="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('YourBirthday') )
                   .col-6.col-12-small
                     label=i18n('Gender')
-                    input(type="radio" id="male" name="gender" value="M" )
+                    input(type="radio" id="male" name="Gender" value="M" )
                     label(for="male")=i18n('Male')
-                    input(type="radio" id="female" name="gender" value="F" )
+                    input(type="radio" id="female" name="Gender" value="F" )
                     label(for="female")=i18n('Female')
                   .col-6.col-12-small
                     label=i18n('Country')
                     select(name="Country" style="-webkit-appearance: menulist-button;")
-                      option(value="")=i18n('Country')
+                      each item in country
+                        option(value=item.name.common )  #{item.name.common} [#{item.cca2}]
                   .col-6.col-12-small
                     label=i18n('Nationality')
                     input(type="text" maxlength="100" name="Nationality" placeholder=i18n('Nationality') )
