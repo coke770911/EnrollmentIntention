@@ -12,107 +12,176 @@ block content
         header
           h2= i18n('formTitle')
           p(style="text-align: center;")= i18n('formDescription')
+          hr
         .row
           .col-12.col-12-small
-            section
-              form(method="post" action="#" name="applyForm" id="applyForm")
-                .row.gtr-50
-                  .col-6.col-12-small
-                    label=i18n('FirstName')
-                    input(type="text" maxlength="100" name="FirstName" placeholder=i18n('FirstName') )
-                  .col-6.col-12-small
-                    label=i18n('LastName')
-                    input(type="text" maxlength="100" name="LastName" placeholder=i18n('LastName') )
-                  .col-6.col-12-small
-                    label=i18n('Birthday')
-                    input(class="form-control" type="text" maxlength="100" name="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('YourBirthday') )
-                  .col-6.col-12-small
-                    label=i18n('Gender')
-                    input(type="radio" id="male" name="Gender" value="M" )
-                    label(for="male")=i18n('Male')
-                    input(type="radio" id="female" name="Gender" value="F" )
-                    label(for="female")=i18n('Female')
-                  .col-6.col-12-small
-                    label=i18n('Country')
-                    select(name="Country" style="-webkit-appearance: menulist-button;")
-                      each item in country
-                        option(value=item.name.common )  #{item.name.common} [#{item.cca2}]
-                  .col-6.col-12-small
-                    label=i18n('Nationality')
-                    input(type="text" maxlength="100" name="Nationality" placeholder=i18n('Nationality') )
-                  .col-12
-                    label=i18n('Language(s) spoken at home')
-                    input(type="text" maxlength="100" name="Language" placeholder=i18n('Language') )
-                  .col-12
-                    label=i18n('Address')
-                    input(type="text" maxlength="100" name="Address" placeholder=i18n('Address') )
-                  .col-6 
-                    label=i18n('City')
-                    input(type="text" maxlength="100" name="City" placeholder=i18n('City') )
-                  .col-6
-                    label=i18n('State')
-                    input(type="text" maxlength="100" name="State" placeholder=i18n('State') )
+            form(method="post" action="#" name="applyForm" id="applyForm")
+              section
+              .row.gtr-50
+                .col-6.col-12-small
+                  label=i18n('FirstName')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="FirstName" placeholder=i18n('FirstName') )
+                .col-6.col-12-small
+                  label=i18n('LastName')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="LastName" placeholder=i18n('LastName') )
+                .col-6.col-12-small
+                  label=i18n('Birthday')
+                    span(style="color: red;") *
+                  input(class="form-control" type="text" maxlength="100" name="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('YourBirthday') )
+                .col-6.col-12-small
+                  label=i18n('Gender')
+                    span(style="color: red;") *
+                  input(type="radio" id="male" name="Gender" value="M" )
+                  label(for="male")=i18n('Male')
+                  input(type="radio" id="female" name="Gender" value="F" )
+                  label(for="female")=i18n('Female')
+                .col-6.col-12-small
+                  label=i18n('Country')
+                    span(style="color: red;") *
+                  select(name="Country" style="-webkit-appearance: menulist-button;")
+                    option(value="") --#{i18n('Please Select')}--
+                    each item in country
+                      option(value=item.name.common )  #{item.name.common} [#{item.cca2}]
+                .col-6.col-12-small
+                  label=i18n('Nationality')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Nationality" placeholder=i18n('Nationality') )
+                .col-12
+                  label=i18n('Language(s) spoken at home')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Language" placeholder=i18n('Language') )
+                .col-12
+                  hr   
+                  h3=i18n('Education & Qualifications')
+                  p= i18n('Please list your qualifications below and attach certified copies of your academic transcripts/report when you submit this application form. If you are currently completing a qualification, please indicate when you expect to complete this study.')
+                .col-6
+                  label=i18n('Qualification')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Qualification" placeholder=i18n('Qualification') )
+                .col-6
+                  label=i18n('Institution')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Institution" placeholder=i18n('Institution') )
+                .col-6
+                  label=i18n('Year Completed')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="YearCompleted" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder=i18n('Year Completed') )
+                .col-6 
+                  label=i18n('Country')
+                    span(style="color: red;") *
+                  select(name="QualificationCountry" style="-webkit-appearance: menulist-button;")
+                    option(value="") --#{i18n('Please Select')}--
+                    each item in country
+                      option(value=item.name.common )  #{item.name.common} [#{item.cca2}]
+                .col-12
+                  hr
+                  h3=i18n('Permanent Contact Details')
+                  p= i18n('Mailing Address')
+                  label=i18n('Address')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Address" placeholder=i18n('Address') )
+                .col-6 
+                  label=i18n('City')
+                  input(type="text" maxlength="100" name="City" placeholder=i18n('City') )
+                .col-6
+                  label=i18n('State')
+                  input(type="text" maxlength="100" name="State" placeholder=i18n('State') )
+                .col-12 
+                  label=i18n('ZipCode')
+                  input(type="text" maxlength="100" name="ZipCode" placeholder=i18n('ZipCode') )
+                .col-12
+                  label=i18n('Phone')
+                    span(style="color: red;") *
+                  input(type="text" name="Phone" placeholder="include country & area codes (e.g. +886 2 77388000)" )
+                .col-12
+                  label=i18n('Email')
+                    span(style="color: red;") *
+                  input(type="text" maxlength="100" name="Email" placeholder=i18n('Email') )
+                .col-12 
+                  hr
+                  label=i18n('Do you suffer from any medical condition/disability that may affect your studies?')
+                    span(style="color: red;") *
+                  input(type="radio" id="female" name="PhysicalConditionCheck" value="0" onclick="if(this.checked){$('#PhysicalConditionView').hide();}else{$('#PhysicalConditionView').show();}")
+                  label(for="female")=i18n('No')
+                  input(type="radio" id="male" name="PhysicalConditionCheck" value="1" onclick="if(this.checked){$('#PhysicalConditionView').show();}else{$('#PhysicalConditionView').hide();}")
+                  label(for="male")=i18n('Yes')
+                .col-12#PhysicalConditionView(style="display: none;")
+                  label=i18n('If yes, please specify from the following')
                   .col-12 
-                    label=i18n('ZipCode')
-                    input(type="text" maxlength="100" name="ZipCode" placeholder=i18n('ZipCode') )
-                  .col-12
-                    label=i18n('Phone')
-                    input(type="text" name="Phone" placeholder="include country & area codes (e.g. +886 2 77388000)" )
-                  .col-12
-                    label=i18n('Email')
-                    input(type="text" maxlength="100" name="Email" placeholder=i18n('Email') )
+                    input(type="checkbox" name="PhysicalCondition[]" value="Hearing")
+                    label=i18n('Hearing')
                   .col-12 
-                    label=i18n('Do you suffer from any medical condition/disability that may affect your studies?')
-                    input(type="radio" id="male" name="PhysicalConditionCheck" value="1" )
-                    label(for="male")=i18n('Yes')
-                    input(type="radio" id="female" name="PhysicalConditionCheck" value="0" )
-                    label(for="female")=i18n('No')
+                    input(type="checkbox" name="PhysicalCondition[]" value="Learning")
+                    label=i18n('Learning')
                   .col-12 
-                    label=i18n('If yes, please specify from the following')
-                    .col-12 
-                      input(type="checkbox" name="PhysicalCondition[]" value="Hearing")
-                      label=i18n('Hearing')
-                    .col-12 
-                      input(type="checkbox" name="PhysicalCondition[]" value="Learning")
-                      label=i18n('Learning')
-                    .col-12 
-                      input(type="checkbox" name="PhysicalCondition[]" value="Mobility")
-                      label=i18n('Mobility')
-                    .col-12 
-                      input(type="checkbox" name="PhysicalCondition[]" value="Visual")
-                      label=i18n('Visual')
-                    .col-12 
-                      input(type="checkbox" name="PhysicalCondition[]" value="Medical")
-                      label=i18n('Medical')
-                    .col-12
-                      input(type="checkbox" name="PhysicalCondition[]" value="Other" onclick="if(this.checked){$('#PhysicalConditionOther').show();}else{$('#PhysicalConditionOther').hide();}" )
-                      label=i18n('Other')
-                      input#PhysicalConditionOther(type="text" maxlength="100" style="display: none;" name="PhysicalConditionOther" placeholder=i18n('Other, Please specify'))
+                    input(type="checkbox" name="PhysicalCondition[]" value="Mobility")
+                    label=i18n('Mobility')
+                  .col-12 
+                    input(type="checkbox" name="PhysicalCondition[]" value="Visual")
+                    label=i18n('Visual')
+                  .col-12 
+                    input(type="checkbox" name="PhysicalCondition[]" value="Medical")
+                    label=i18n('Medical')
                   .col-12
-                    label=i18n('How did you hear about us?')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Educatuin Agent")
-                      label=i18n('Educatuin Agent')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Career & Education Expo")
-                      label=i18n('Career & Education Expo')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Careers Adviser")
-                      label=i18n('Careers Adviser')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Billboard") 
-                      label=i18n('Billboard')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Print/Newspaper")
-                      label=i18n('Print/Newspaper')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Word of Mouth")
-                      label=i18n('Word of Mouth')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Google or other search engine")
-                      label=i18n('Google or other search engine')
-                    .col-12
-                      input(type="checkbox" name="MessageSource[]" value="Other")
-                      label=i18n('Other')
-                  .col-12(style="text-align: center;")
-                    a(href="#" class="form-button-submit button icon solid fa-envelope")=i18n('Send')
+                    input(type="checkbox" name="PhysicalCondition[]" value="Other" onclick="if(this.checked){$('#PhysicalConditionOther').show();}else{$('#PhysicalConditionOther').hide();}" )
+                    label=i18n('Other')
+                    input#PhysicalConditionOther(type="text" maxlength="100" style="display: none;" name="PhysicalConditionOther" placeholder=i18n('Other, Please specify'))
+                .col-12
+                  hr
+                  label=i18n('How did you hear about us?')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Educatuin Agent")
+                    label=i18n('Educatuin Agent')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Career & Education Expo")
+                    label=i18n('Career & Education Expo')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Careers Adviser")
+                    label=i18n('Careers Adviser')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Billboard") 
+                    label=i18n('Billboard')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Print/Newspaper")
+                    label=i18n('Print/Newspaper')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Word of Mouth")
+                    label=i18n('Word of Mouth')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Google or other search engine")
+                    label=i18n('Google or other search engine')
+                  .col-12
+                    input(type="checkbox" name="MessageSource[]" value="Other")
+                    label=i18n('Other')
+                  .col-12
+                    hr
+                    label=i18n('Other comments?')
+                    textarea(name="Comment", cols="30", rows="10",placeholder=i18n('Other comments?') ,maxlength="1000") 
+                .col-12(style="text-align: center;")
+                  a#sendForm(href="#" class="form-button-submit button icon solid fa-envelope")=i18n('Send')
+  script.
+    document.addEventListener('DOMContentLoaded', function() {
+      $("#sendForm").click(function(e){
+        e.preventDefault()
+        mask.show()
+        $.post("/apply",$("#applyForm").serialize(),function(data){
+          if(!data.error) {
+            Swal.fire(data.msg).then((result) => {
+              if(result.value){
+                document.location = "https://eng-rp.aeust.edu.tw"
+              }
+            })
+          } else {
+            Swal.fire(data.msg)
+          }
+        },"json")
+        .fail(function() {
+          Swal.fire("error");
+        })
+        .always(function() {
+          mask.hide();
+        });
+      })
+    })

@@ -65,3 +65,6 @@ sessions
 
 /config
 /config.json
+
+# 上传文件
+/uploadfiles
